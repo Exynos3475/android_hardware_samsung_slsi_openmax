@@ -365,13 +365,6 @@ OMX_ERRORTYPE Exynos_H264Enc_SetParameter_SkypeHD(
         if (pstEncParam->bUseExtendedProfile == OMX_TRUE) {
             Exynos_OSAL_Log(EXYNOS_LOG_TRACE, "pstEncParam->eProfile: 0x%x", pstEncParam->eProfile);
             switch (pstEncParam->eProfile) {
-            case OMX_VIDEO_EXT_AVCProfileConstrainedBaseline:
-                pH264Enc->AVCComponent[OUTPUT_PORT_INDEX].eProfile = OMX_VIDEO_AVCProfileConstrainedBaseline;
-                break;
-            case OMX_VIDEO_EXT_AVCProfileConstrainedHigh:
-                pH264Enc->AVCComponent[OUTPUT_PORT_INDEX].eProfile = OMX_VIDEO_AVCProfileConstrainedHigh;
-                break;
-            default:
                 Exynos_OSAL_Log(EXYNOS_LOG_TRACE, "default eProfile: 0x%x", pH264Enc->AVCComponent[OUTPUT_PORT_INDEX].eProfile);
                 break;
             }

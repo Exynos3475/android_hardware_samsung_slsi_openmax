@@ -89,8 +89,6 @@ static OMX_ERRORTYPE SetProfileLevel(
     pH264Enc->hMFCH264Handle.profiles[nProfileCnt++] = OMX_VIDEO_AVCProfileBaseline;
     pH264Enc->hMFCH264Handle.profiles[nProfileCnt++] = OMX_VIDEO_AVCProfileMain;
     pH264Enc->hMFCH264Handle.profiles[nProfileCnt++] = OMX_VIDEO_AVCProfileHigh;
-    pH264Enc->hMFCH264Handle.profiles[nProfileCnt++] = (OMX_VIDEO_AVCPROFILETYPE)OMX_VIDEO_AVCProfileConstrainedBaseline;
-    pH264Enc->hMFCH264Handle.profiles[nProfileCnt++] = (OMX_VIDEO_AVCPROFILETYPE)OMX_VIDEO_AVCProfileConstrainedHigh;
     pH264Enc->hMFCH264Handle.nProfileCnt = nProfileCnt;
 
     switch (pH264Enc->hMFCH264Handle.videoInstInfo.HwVersion) {
@@ -251,14 +249,10 @@ static OMX_U32 OMXAVCProfileToProfileIDC(OMX_VIDEO_AVCPROFILETYPE profile)
 
     if (profile == OMX_VIDEO_AVCProfileBaseline)
         ret = 0;
-    else if ((OMX_VIDEO_AVCPROFILEEXTTYPE)profile == OMX_VIDEO_AVCProfileConstrainedBaseline)
-        ret = 1;
     else if (profile == OMX_VIDEO_AVCProfileMain)
         ret = 2;
     else if (profile == OMX_VIDEO_AVCProfileHigh)
         ret = 4;
-    else if ((OMX_VIDEO_AVCPROFILEEXTTYPE)profile == OMX_VIDEO_AVCProfileConstrainedHigh)
-        ret = 17;
 
     return ret;
 }
